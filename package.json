@@ -45,5 +45,6 @@
 		"jazz-svelte": "^0.14.0",
 		"jazz-tools": "^0.14.0",
 		"paper": "^0.12.18"
-	}
+	},
+	"license": "MIT"
 }
