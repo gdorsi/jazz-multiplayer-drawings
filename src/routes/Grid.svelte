@@ -30,7 +30,7 @@
 	}
 
 	const paintings = $derived(
-		useCoState(Paintings, 'co_zeHWMxd4Q7RRkf6PBb8JptjpRWf', {
+		useCoState(Paintings, 'co_zNQSuU459j4goZJdGAit732RiN9', {
 			resolve: {
 				$each: {
 					painting: {

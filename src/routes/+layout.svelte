@@ -17,9 +17,9 @@
 	}}
 	AccountSchema={Account}
 >
-	{#if dev}
+	<!-- {#if dev}
 		<jazz-inspector></jazz-inspector>
-	{/if}
+	{/if} -->
 
 	{@render children()}
 </JazzProvider>
