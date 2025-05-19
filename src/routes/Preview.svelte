@@ -69,6 +69,7 @@
 				for (let path of painting ?? []) {
 					if (!path || drawnPaths.has(path.id)) continue;
 
+					scope?.activate();
 					drawnPaths.add(path.id);
 
 					let drawPath = new paper.Path();
