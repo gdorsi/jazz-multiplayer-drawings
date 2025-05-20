@@ -63,7 +63,7 @@
 		</Button>
 
 		{#if paintings.current}
-			{#each paintings.current as painting}
+			{#each paintings.current.reverse() as painting}
 				{#if painting.count > 0}
 					<Box class="h-50 p-0">
 						<button
