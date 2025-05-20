@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { Counter, PaintingPaths, Paintings } from '$lib/schema';
-	import { useCoState } from 'jazz-svelte';
+	import { CoState } from 'jazz-svelte';
 	import { Group } from 'jazz-tools';
 	import Preview from './Preview.svelte';
 	import { Alert, Box, Button, Heading } from '@fuxui/base';
@@ -23,27 +23,21 @@
 			let newPaintings = Paintings.create([newPainting], group);
 			console.log('created new paintings', newPaintings.id);
 		} else {
-			paintings.current?.push(newPainting);
+			paintings.current.push(newPainting);
 		}
 
 		goto(base + '/?id=' + newPainting.id, {});
 	}
 
-	const paintings = $derived(
-		useCoState(Paintings, 'co_zNQSuU459j4goZJdGAit732RiN9', {
-			resolve: {
-				$each: {
-					painting: {
-						$each: {
-							segments: {
-								$each: true
-							}
-						}
-					}
+	const paintings = new CoState(Paintings, 'co_zNQSuU459j4goZJdGAit732RiN9', {
+		resolve: {
+			$each: {
+				painting: {
+					$each: true
 				}
 			}
-		})
-	);
+		}
+	});
 
 	let emptyPaintingsCount = $derived(
 		paintings.current?.filter((painting) => painting.count === 0).length
